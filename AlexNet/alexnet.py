@@ -16,8 +16,7 @@ class AlexNet:
         # chandim = -1
 
         # Block1 conv ke-1 > RELU > Pool Layer Set
-        model.add(Conv2D(96,(11, 11), strides=(4,4), input_shape=inputShape,
-                  padding="same"))
+        model.add(Conv2D(96,(11, 11), strides=(4,4), input_shape=inputShape, padding="same"))
         model.add(Activation("relu"))
         # model.add(BatchNormalization(axis=chandim))
         model.add(MaxPooling2D(pool_size=(3, 3), strides=(2, 2)))
