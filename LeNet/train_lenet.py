@@ -68,7 +68,7 @@ for imagePath in imagePaths:
         # labels.append(label)
     elif make == "Dark Roast ":
         label = 3
-        # labels.append(label)
+        # labels.append(label)      
     labels.append(label)
 
 print(labels)
