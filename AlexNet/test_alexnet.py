@@ -16,7 +16,7 @@ import cv2
 # args = vars(ap.parse_args())
 
 #load image 
-path = "../Dataset/Medium_Roast (20).jpg"
+path = "../LuarSet/dark_roast (2).jpg"
 image = cv2.imread(path, cv2.IMREAD_COLOR)
 orig = image.copy()
 

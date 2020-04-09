@@ -2,7 +2,7 @@ import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import Model
 from tensorflow.keras.models import Sequential 
-from tensorflow.keras.layers import Dense, Flatten, Conv2D, MaxPooling2D, Activation
+from tensorflow.keras.layers import Dense, Flatten, Conv2D, MaxPooling2D, Activation, Dropout
 
 class VGG16:
     @staticmethod
@@ -19,6 +19,7 @@ class VGG16:
         model.add(Conv2D(64, (3,3), padding ="same"))
         model.add(Activation("relu"))
         model.add(MaxPooling2D(pool_size=(2,2), strides = (2,2)))
+        model.add(Dropout(0.25))
 
         #3
         model.add(Conv2D(128, (3,3), padding="same"))
@@ -28,6 +29,7 @@ class VGG16:
         model.add(Conv2D(128, (3,3), padding="same"))
         model.add(Activation("relu"))
         model.add(MaxPooling2D(pool_size=(2,2), strides=(2,2)))
+        model.add(Dropout(0.25))
 
         #5
         model.add(Conv2D(256, (3,3), padding="same"))
@@ -41,6 +43,7 @@ class VGG16:
         model.add(Conv2D(256, (3,3), padding="same"))
         model.add(Activation("relu"))
         model.add(MaxPooling2D(pool_size=(2,2), strides=(2,2)))
+        model.add(Dropout(0.25))
 
         #8
         model.add(Conv2D(512, (3,3), padding="same"))
@@ -54,6 +57,7 @@ class VGG16:
         model.add(Conv2D(512, (3,3), padding="same"))
         model.add(Activation("relu"))
         model.add(MaxPooling2D(pool_size=(2,2), strides=(2,2)))
+        model.add(Dropout(0.25))
 
         #11
         model.add(Conv2D(512, (3,3), padding="same"))
@@ -67,17 +71,18 @@ class VGG16:
         model.add(Conv2D(512, (3,3), padding="same"))
         model.add(Activation("relu"))
         model.add(MaxPooling2D(pool_size=(2,2), strides=(2,2)))
+        model.add(Dropout(0.25))
 
         #14fC
         model.add(Flatten())
         model.add(Dense(4096))
         model.add(Activation("relu"))
-        # model.add(Dropout(0.5))
+        model.add(Dropout(0.5))
 
         #15fc
         model.add(Dense(4096))
         model.add(Activation("relu"))
-        # model.add(Dropout(0.5))
+        model.add(Dropout(0.5))
 
         #16Softmax
         model.add(Dense(classes))

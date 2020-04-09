@@ -2,10 +2,10 @@ import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import Model
 from tensorflow.keras.models import Sequential 
-from tensorflow.keras.layers import Dense, Flatten, Conv2D, MaxPooling2D, Activation
+from tensorflow.keras.layers import Dense, Flatten, Conv2D, MaxPooling2D, Activation, Dropout
 from keras.layers.normalization import BatchNormalization
 from tensorflow.keras.regularizers import l2
-from keras.layers.core import Dropout
+# from keras.layers.core import Dropout
 
 class AlexNet:
     @staticmethod
@@ -50,13 +50,15 @@ class AlexNet:
         model.add(Dense(4096))
         model.add(Activation("relu"))
         # model.add(BatchNormalization())
-        # model.add(Dropout(0.5))
+        #drop rate 40%
+        model.add(Dropout(0.4))
 
         #block 5 FC ke 2
         model.add(Dense(4096))
         model.add(Activation("relu"))
         # model.add(BatchNormalization())
-        # model.add(Dropout(0.5))
+        #drop rate 40%
+        model.add(Dropout(0.4))
 
         #softmax
         model.add(Dense(classes))

@@ -20,7 +20,7 @@ tf.config.experimental.list_logical_devices('GPU')
 # args = vars(ap.parse_args())
 
 #load image 
-path = "../Dataset/Dark_Roast (26).jpg"
+path = "../LuarSet/medium_roast (2).jpg"
 image = cv2.imread(path, cv2.IMREAD_COLOR)
 orig = image.copy()
 
