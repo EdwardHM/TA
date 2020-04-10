@@ -17,6 +17,10 @@ import matplotlib.pyplot as plt
 import random
 import os
 import argparse
+from tensorflow.keras.utils import to_categorical
+from sklearn.preprocessing import LabelBinarizer
+from sklearn.metrics import classification_report
+from sklearn.metrics import confusion_matrix
 
 #Setting for using CPU
 tf.config.experimental.set_visible_devices([], 'GPU')
@@ -99,7 +103,7 @@ model.compile(loss="binary_crossentropy", optimizer=opt, metrics=["accuracy"])
 #train the network
 print("[Info] training model")
 H = model.fit_generator(aug.flow(trainX, trainY, batch_size=BS),
-	validation_data=(testX, testY), steps_per_epoch=len(trainX) // BS,
+	validation_data=(testX, testY), steps_per_epoch=len(trainX) // BS, validation_steps=len(testX) // BS,
 	epochs=EPOCHS, verbose=1)
 
 #save model
@@ -108,6 +112,53 @@ model.save('train_VGG16.model.h5')
 
 #simpan model ke disk
 # model.save(args["model"])
+
+#encoding pada labels
+lb = LabelBinarizer()
+labels = lb.fit_transform(labels)
+labels = to_categorical(labels)
+#confusion matrix
+print("[Info] Evaluasi Network......")
+predIdxs = model.predict(testX, batch_size=BS)
+predIdxs = np.argmax(predIdxs, axis=1)
+print("[Info] Classification Report")
+print (classification_report(testY.argmax(axis=1), predIdxs, 
+        target_names=[str(x) for x in lb.classes_]))
+
+#accuracy, sensivitas, spesifitas
+cm = confusion_matrix(testY.argmax(axis=1), predIdxs)
+print("[Info] Data uji - Data Hasil Predict")
+print(testY.argmax(axis=1))
+print(predIdxs)
+total = sum(sum(cm))
+print("total",total)
+# #Akurasi
+acc = (cm[0,0] + cm[1,1] + cm[2,2] + cm[3,3]) / total
+
+#Spesifitas
+spesivitasME = (cm[1,1] + cm[2,2] + cm[3,3]) / ((cm[1,1] + cm[2,2] + cm[3,3]) + (cm[0,1] + cm[0,2] + cm[0,3]))
+spesivitasLR = (cm[0,0] + cm[2,2] + cm[3,3]) / ((cm[0,0] + cm[2,2] + cm[3,3]) + (cm[0,1] + cm[0,2] + cm[0,3]))
+spesivitasMR = (cm[0,0] + cm[1,1] + cm[3,3]) / ((cm[0,0] + cm[1,1] + cm[3,3]) + (cm[0,1] + cm[0,2] + cm[0,3]))
+spesivitasDR = (cm[0,0] + cm[1,1] + cm[2,2]) / ((cm[0,0] + cm[1,1] + cm[2,2]) + (cm[0,1] + cm[0,2] + cm[0,3]))
+
+#Sensivitas
+sensivitasME = cm[0,0] / (cm[0,0] + (cm[1,0] + cm[2,0] + cm[3,0]))
+sensivitasLR = cm[1,1] / (cm[1,1] + (cm[0,1] + cm[2,1] + cm[3,1]))
+sensivitasMR = cm[2,2] / (cm[2,2] + (cm[0,2] + cm[2,2] + cm[3,2]))
+sensivitasDR = cm[3,3] / (cm[3,3] + (cm[0,3] + cm[1,3] + cm[2,3]))
+
+print("[Info] Confusion Matrix")
+print(cm)
+print("akurasi (rumus sendiri): {:.2f}".format(acc))
+print("Sensivitas Light Roast: {:.2f}".format(sensivitasLR))
+print("Sensivitas Medium Roast: {:.2f}".format(sensivitasMR))
+print("Sensivitas Dark Roast: {:.2f}".format(sensivitasDR))
+print("Sensivitas Mentah: {:.2f}".format(sensivitasME))
+
+print("Spesivitas Light Roast: {:.2f}".format(spesivitasLR))
+print("Spesivitas Medium Roast: {:.2f}".format(spesivitasMR))
+print("Spesivitas Dark Roast: {:.2f}".format(spesivitasDR))
+print("Spesivitas Mentah: {:.2f}".format(spesivitasME))
 
 #plot training loss dan accuracy
 plt.style.use("ggplot")
