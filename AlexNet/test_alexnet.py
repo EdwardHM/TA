@@ -7,6 +7,12 @@ import argparse
 import imutils
 import cv2
 
+#Setting for using CPU
+tf.config.experimental.set_visible_devices([], 'GPU')
+tf.config.experimental.list_physical_devices('GPU')
+tf.config.experimental.list_logical_devices('GPU')
+
+
 #konstruk argumen
 # ap = argparse.ArgumentParser()
 # # ap.add_argument("-m", "--model", required=True,
@@ -16,7 +22,7 @@ import cv2
 # args = vars(ap.parse_args())
 
 #load image 
-path = "../LuarSet/dark_roast (2).jpg"
+path = "../Dataset/Medium Roast (30).jpg"
 image = cv2.imread(path, cv2.IMREAD_COLOR)
 orig = image.copy()
 

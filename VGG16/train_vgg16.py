@@ -18,8 +18,7 @@ import random
 import os
 import argparse
 
-# configuration = tf.compat.v1.ConfigProto(device_count={"GPU": 0})
-# session = tf.compat.v1.Session(config=configuration)
+#Setting for using CPU
 tf.config.experimental.set_visible_devices([], 'GPU')
 tf.config.experimental.list_physical_devices('GPU')
 tf.config.experimental.list_logical_devices('GPU')
