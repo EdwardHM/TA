@@ -8,6 +8,8 @@ matplotlib.use("Agg")
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.optimizers import SGD 
+from tensorflow.keras.optimizers import Nadam
 from sklearn.model_selection import train_test_split
 from keras.preprocessing.image import img_to_array
 from keras.preprocessing.image import ImageDataGenerator
@@ -22,10 +24,10 @@ from sklearn.preprocessing import LabelBinarizer
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 
-#Setting for using CPU
-tf.config.experimental.set_visible_devices([], 'GPU')
-tf.config.experimental.list_physical_devices('GPU')
-tf.config.experimental.list_logical_devices('GPU')
+#Setting for using CPU(untuk Adam dan SGD gak usah)
+# tf.config.experimental.set_visible_devices([], 'GPU')
+# tf.config.experimental.list_physical_devices('GPU')
+# tf.config.experimental.list_logical_devices('GPU')
 
 np.seterr(divide='ignore', invalid='ignore')
 
@@ -50,7 +52,6 @@ imagePaths = sorted(list(paths.list_images("../prepo")))
 random.seed(42)
 random.shuffle(imagePaths)
 
-
 for imagePath in imagePaths:
     make = imagePath[9:].split("(")[0]
     image = cv2.imread(imagePath)
@@ -63,16 +64,12 @@ for imagePath in imagePaths:
 
     if make == "Mentah ":
         label = 0
-        # labels.append(label)
     elif make == "Light Roast ":
         label = 1
-        # labels.append(label)
     elif make =="Medium Roast ":
         label = 2
-        # labels.append(label)
     elif make == "Dark Roast ":
         label = 3
-        # labels.append(label)
     labels.append(label)
 
 print(labels)
@@ -97,7 +94,9 @@ aug = ImageDataGenerator(rotation_range = 30, width_shift_range=0.1,
 #inisiasi model
 print("[Info] Compiling Model.....")
 model = AlexNet.build(width=227, height=227, depth=3, classes=4)
-opt = Adam(lr=INIT_LR, decay=INIT_LR / EPOCHS)
+# opt = Adam(lr=INIT_LR, decay=INIT_LR / EPOCHS)
+opt = SGD(lr=INIT_LR, momentum=0.9, decay=INIT_LR / EPOCHS)
+# opt = Nadam(lr=INIT_LR, decay=INIT_LR / EPOCHS)
 model.compile(loss="binary_crossentropy", optimizer=opt, metrics=["accuracy"])
 
 #train the network
@@ -108,7 +107,9 @@ H = model.fit_generator(aug.flow(trainX, trainY, batch_size=BS),
 
 #save model
 print("[Info] menyimpan model")
-model.save('train_AlexNet.model.h5')
+# model.save('train_AlexNet.model.h5')
+# model.save('train_AlexNet(SGD).model.h5')
+# model.save('train_AlexNet(NADAM).model.h5')
 
 #simpan model ke disk
 # model.save(args["model"])

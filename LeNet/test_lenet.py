@@ -16,7 +16,7 @@ import cv2
 # args = vars(ap.parse_args())
 
 #load image 
-path = "../LuarSet/mentah (5).jpg"
+path = "../LuarSet/Light_Roast (1).jpg"
 image = cv2.imread(path, cv2.IMREAD_COLOR)
 orig = image.copy()
 
@@ -32,8 +32,6 @@ image = cv2.cvtColor(image, cv2.COLOR_YCR_CB2BGR)
 
 #resize
 image = cv2.resize(image,(32,32))
-# cv2.imshow("o",image)
-# cv2.waitKey(0)
 image = image.astype("float") / 255.0
 image = img_to_array(image)
 image = np.expand_dims(image, axis = 0)

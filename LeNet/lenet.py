@@ -12,9 +12,6 @@ class LeNet:
         #inisiasi model
         model = Sequential()
         inputShape = (height, width, depth)
-
-        # if tf.keras.image_data_format() == "channels_first":
-        #     inputShape = (depth, height, width)
         
         #same = zero padding set conv-relu-pool layer 20 layer convolution 5x5
         model.add(Conv2D(20, (5,5), padding="same", input_shape = inputShape))

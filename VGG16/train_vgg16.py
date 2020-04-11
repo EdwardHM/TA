@@ -37,6 +37,7 @@ args = vars(ap.parse_args())
 
 # inisiasi variabel
 EPOCHS = 20
+#10^-3
 INIT_LR = 1e-3
 BS = 32
 

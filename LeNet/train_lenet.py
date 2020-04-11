@@ -8,6 +8,8 @@ matplotlib.use("Agg")
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.optimizers import SGD 
+from tensorflow.keras.optimizers import Nadam
 from tensorflow.keras.utils import to_categorical
 from sklearn.preprocessing import LabelBinarizer
 from sklearn.model_selection import train_test_split
@@ -33,6 +35,7 @@ args = vars(ap.parse_args())
 
 # inisiasi variabel
 EPOCHS = 20
+#10^-3
 INIT_LR = 1e-3
 BS = 32
 
@@ -59,16 +62,12 @@ for imagePath in imagePaths:
 
     if make == "Mentah ":
         label = 0
-        # labels.append(label)
     elif make == "Light Roast ":
         label = 1
-        # labels.append(label)
     elif make =="Medium Roast ":
         label = 2
-        # labels.append(label)
     elif make == "Dark Roast ":
-        label = 3
-        # labels.append(label)      
+        label = 3     
     labels.append(label)
 
 print(labels)
@@ -94,6 +93,8 @@ aug = ImageDataGenerator(rotation_range = 30, width_shift_range=0.1,
 print("[Info] Compiling Model.....")
 model = LeNet.build(width=32, height=32, depth=3, classes=4)
 opt = Adam(lr=INIT_LR, decay=INIT_LR / EPOCHS)
+# opt = SGD(lr=INIT_LR, momentum=0.9, decay=INIT_LR / EPOCHS)
+# opt = Nadam(lr=INIT_LR, decay=INIT_LR / EPOCHS)
 model.compile(loss="binary_crossentropy", optimizer=opt, metrics=["accuracy"])
 
 #train the network
@@ -104,7 +105,9 @@ H = model.fit_generator(aug.flow(trainX, trainY, batch_size=BS),
 
 #save model
 print("[Info] menyimpan model")
-model.save('train_lenet.model.h5')
+# model.save('train_lenet.model.h5')
+# model.save('train_lenet(SGD).model.h5')
+# model.save('train_lenet(NADAM).model.h5')
 
 #simpan model ke disk
 # model.save(args["model"])
