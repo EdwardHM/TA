@@ -31,6 +31,8 @@ np.seterr(divide='ignore', invalid='ignore')
 ap = argparse.ArgumentParser()
 ap.add_argument("-p", "--plot", type=str, default="plot.png",
 	help="path to output accuracy/loss plot")
+ap.add_argument("-d", "--plot2", type=str, default="plotAkurasi.png",
+	help="path to output accuracy/loss plot") 
 args = vars(ap.parse_args())
 
 # inisiasi variabel
@@ -95,7 +97,8 @@ model = LeNet.build(width=32, height=32, depth=3, classes=4)
 opt = Adam(lr=INIT_LR, decay=INIT_LR / EPOCHS)
 # opt = SGD(lr=INIT_LR, momentum=0.9, decay=INIT_LR / EPOCHS)
 # opt = Nadam(lr=INIT_LR, decay=INIT_LR / EPOCHS)
-model.compile(loss="binary_crossentropy", optimizer=opt, metrics=["accuracy"])
+# model.compile(loss="binary_crossentropy", optimizer=opt, metrics=["accuracy"])
+model.compile(loss="categorical_crossentropy", optimizer=opt, metrics=["accuracy"])
 
 #train the network
 print("[Info] training model")
@@ -105,7 +108,7 @@ H = model.fit_generator(aug.flow(trainX, trainY, batch_size=BS),
 
 #save model
 print("[Info] menyimpan model")
-# model.save('train_lenet.model.h5')
+model.save('train_lenet.model.h5')
 # model.save('train_lenet(SGD).model.h5')
 # model.save('train_lenet(NADAM).model.h5')
 
@@ -131,7 +134,7 @@ print(testY.argmax(axis=1))
 print(predIdxs)
 total = sum(sum(cm))
 print("total",total)
-# #Akurasi
+# Akurasi
 acc = (cm[0,0] + cm[1,1] + cm[2,2] + cm[3,3]) / total
 
 #Spesifitas
@@ -165,10 +168,19 @@ plt.figure()
 N =  EPOCHS
 plt.plot(np.arange(0,N), H.history["loss"], label="train_loss")
 plt.plot(np.arange(0, N), H.history["val_loss"], label="val_loss")
-plt.plot(np.arange(0, N), H.history["accuracy"], label="train_accuracy")
-plt.plot(np.arange(0, N), H.history["val_accuracy"], label="val_accuracy")
-plt.title("Training Loss dan Accuracy Tingkatan Roasting Kopi")
-plt.xlabel("Epoch #")
-plt.ylabel("Loss/Accuracy")
+plt.title("Training Loss Tingkatan Roasting Kopi")
+plt.xlabel("20 Epoch")
+plt.ylabel("Loss")
 plt.legend(loc="lower left")
 plt.savefig(args["plot"])
+
+plt.style.use("ggplot")
+plt.figure()
+N =  EPOCHS
+plt.plot(np.arange(0, N), H.history["accuracy"], label="train_accuracy")
+plt.plot(np.arange(0, N), H.history["val_accuracy"], label="val_accuracy")
+plt.title("Accuracy Tingkatan Roasting Kopi")
+plt.xlabel("20 Epoch")
+plt.ylabel("Accuracy")
+plt.legend(loc="lower left")
+plt.savefig(args["plot2"])
