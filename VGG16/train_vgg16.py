@@ -8,6 +8,8 @@ matplotlib.use("Agg")
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.optimizers import SGD 
+from tensorflow.keras.optimizers import Nadam
 from sklearn.model_selection import train_test_split
 from keras.preprocessing.image import img_to_array
 from keras.preprocessing.image import ImageDataGenerator
@@ -33,6 +35,8 @@ np.seterr(divide='ignore', invalid='ignore')
 ap = argparse.ArgumentParser()
 ap.add_argument("-p", "--plot", type=str, default="plot.png",
 	help="path to output accuracy/loss plot")
+ap.add_argument("-d", "--plot2", type=str, default="plotAkurasi.png",
+	help="path to output accuracy/loss plot") 
 args = vars(ap.parse_args())
 
 # inisiasi variabel
@@ -99,7 +103,10 @@ aug = ImageDataGenerator(rotation_range = 30, width_shift_range=0.1,
 print("[Info] Compiling Model.....")
 model = VGG16.build(width=224, height=224, depth=3, classes=4)
 opt = Adam(lr=INIT_LR, decay=INIT_LR / EPOCHS)
-model.compile(loss="binary_crossentropy", optimizer=opt, metrics=["accuracy"])
+# opt = SGD(lr=INIT_LR, momentum=0.9, decay=INIT_LR / EPOCHS)
+# opt = Nadam(lr=INIT_LR, decay=INIT_LR / EPOCHS)
+# model.compile(loss="binary_crossentropy", optimizer=opt, metrics=["accuracy"])
+model.compile(loss="categorical_crossentropy", optimizer=opt, metrics=["accuracy"])
 
 #train the network
 print("[Info] training model")
@@ -110,6 +117,8 @@ H = model.fit_generator(aug.flow(trainX, trainY, batch_size=BS),
 #save model
 print("[Info] menyimpan model")
 model.save('train_VGG16.model.h5')
+# model.save('train_VGG16(SGD).model.h5')
+# model.save('train_VGG16(NADAM).model.h5')
 
 #simpan model ke disk
 # model.save(args["model"])
@@ -167,10 +176,19 @@ plt.figure()
 N =  EPOCHS
 plt.plot(np.arange(0,N), H.history["loss"], label="train_loss")
 plt.plot(np.arange(0, N), H.history["val_loss"], label="val_loss")
-plt.plot(np.arange(0, N), H.history["accuracy"], label="train_accuracy")
-plt.plot(np.arange(0, N), H.history["val_accuracy"], label="val_accuracy")
-plt.title("Training Loss dan Accuracy Tingkatan Roasting Kopi")
-plt.xlabel("Epoch #")
-plt.ylabel("Loss/Accuracy")
+plt.title("Training Loss Tingkatan Roasting Kopi")
+plt.xlabel("20 Epoch")
+plt.ylabel("Loss")
 plt.legend(loc="lower left")
 plt.savefig(args["plot"])
+
+plt.style.use("ggplot")
+plt.figure()
+N =  EPOCHS
+plt.plot(np.arange(0, N), H.history["accuracy"], label="train_accuracy")
+plt.plot(np.arange(0, N), H.history["val_accuracy"], label="val_accuracy")
+plt.title("Accuracy Tingkatan Roasting Kopi")
+plt.xlabel("20 Epoch")
+plt.ylabel("Accuracy")
+plt.legend(loc="lower left")
+plt.savefig(args["plot2"])

@@ -24,6 +24,10 @@ import random
 import os
 import argparse
 
+#Setting for using CPU
+tf.config.experimental.set_visible_devices([], 'GPU')
+tf.config.experimental.list_physical_devices('GPU')
+tf.config.experimental.list_logical_devices('GPU')
 
 np.seterr(divide='ignore', invalid='ignore')
 
@@ -94,9 +98,9 @@ aug = ImageDataGenerator(rotation_range = 30, width_shift_range=0.1,
 #inisiasi model
 print("[Info] Compiling Model.....")
 model = LeNet.build(width=32, height=32, depth=3, classes=4)
-opt = Adam(lr=INIT_LR, decay=INIT_LR / EPOCHS)
+# opt = Adam(lr=INIT_LR, decay=INIT_LR / EPOCHS)
 # opt = SGD(lr=INIT_LR, momentum=0.9, decay=INIT_LR / EPOCHS)
-# opt = Nadam(lr=INIT_LR, decay=INIT_LR / EPOCHS)
+opt = Nadam(lr=INIT_LR, decay=INIT_LR / EPOCHS)
 # model.compile(loss="binary_crossentropy", optimizer=opt, metrics=["accuracy"])
 model.compile(loss="categorical_crossentropy", optimizer=opt, metrics=["accuracy"])
 
@@ -108,9 +112,9 @@ H = model.fit_generator(aug.flow(trainX, trainY, batch_size=BS),
 
 #save model
 print("[Info] menyimpan model")
-model.save('train_lenet.model.h5')
+# model.save('train_lenet.model.h5')
 # model.save('train_lenet(SGD).model.h5')
-# model.save('train_lenet(NADAM).model.h5')
+model.save('train_lenet(NADAM).model.h5')
 
 #simpan model ke disk
 # model.save(args["model"])

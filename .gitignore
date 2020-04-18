@@ -1,7 +1,14 @@
 train_AlexNet.model.h5
 train_lenet.model.h5
 train_VGG16.model.h5
+train_miniVgg.model.h5
 train_lenet(NADAM).model.h5
 train_lenet(SGD).model.h5
+train_AlexNet(NADAM).model.h5
+train_AlexNet(SGD).model.h5
+train_VGG16(NADAM).model.h5
+train_VGG16(SGD).model.h5
+train_miniVgg(NADAM).model.h5
+train_miniVgg(SGD).model.h5
 Images
 LuarSet

@@ -44,7 +44,7 @@ image = np.expand_dims(image, axis = 0)
 #load model yang sudah dilatih
 print("[Info] Loading Network.....")
 # model = load_model("train_lenet.model.h5")
-model = tf.keras.models.load_model("train_lenet.model.h5")
+model = tf.keras.models.load_model("train_miniVgg.model.h5")
 array = model.predict(image)
 result = array[0]
 answer = np.argmax(result)
