@@ -12,7 +12,6 @@ class miniVgg:
         inputShape = (height, width, depth)
 
         #1
-        # model.add(Conv2D(20, (5,5), padding="same", input_shape = inputShape))
         model.add(Conv2D(32, (3,3), padding = "same", input_shape = inputShape))
         model.add(Activation("relu"))
 
@@ -35,6 +34,8 @@ class miniVgg:
         #5 FC
         model.add(Flatten())
         model.add(Dense(512))
+        model.add(Activation("relu"))
+        model.add(Dropout(0.5))
 
         #6
         model.add(Dense(classes))
