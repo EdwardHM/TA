@@ -7,23 +7,17 @@ import argparse
 import imutils
 import cv2
 
+
 #Setting for using CPU
 tf.config.experimental.set_visible_devices([], 'GPU')
 tf.config.experimental.list_physical_devices('GPU')
 tf.config.experimental.list_logical_devices('GPU')
 
-#konstruk argumen
-# ap = argparse.ArgumentParser()
-# # ap.add_argument("-m", "--model", required=True,
-# # 	help="path to trained model model")
-# ap.add_argument("-i", "--image", required=True,
-# 	help="path to input image")
-# args = vars(ap.parse_args())
-
 #load image 
 path = "../LuarSet/Light_Roast (1).jpg"
 image = cv2.imread(path, cv2.IMREAD_COLOR)
 orig = image.copy()
+print(path)
 
 #prepocessing histogram eq rgb
 image = cv2.cvtColor(image, cv2.COLOR_BGR2YCrCb)
@@ -43,7 +37,6 @@ image = np.expand_dims(image, axis = 0)
 
 #load model yang sudah dilatih
 print("[Info] Loading Network.....")
-# model = load_model("train_lenet.model.h5")
 model = tf.keras.models.load_model("train_lenet.model.h5")
 array = model.predict(image)
 result = array[0]
@@ -60,10 +53,12 @@ elif answer == 3:
 
 label = "{}".format(label)
 
-# # draw label di image
+# draw label di image
 output = imutils.resize(orig, width=400)
 cv2.putText(output, label, (10, 25),  cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
 
-# # show output image
+# show output image
 cv2.imshow("Output", output)
 cv2.waitKey(0)
+
+print("hasil prediksi : " + label)

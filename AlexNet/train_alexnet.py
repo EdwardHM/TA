@@ -96,9 +96,9 @@ aug = ImageDataGenerator(rotation_range = 30, width_shift_range=0.1,
 #inisiasi model
 print("[Info] Compiling Model.....")
 model = AlexNet.build(width=227, height=227, depth=3, classes=4)
-# opt = Adam(lr=INIT_LR, decay=INIT_LR / EPOCHS)
+opt = Adam(lr=INIT_LR, decay=INIT_LR / EPOCHS)
 # opt = SGD(lr=INIT_LR, momentum=0.9, decay=INIT_LR / EPOCHS)
-opt = Nadam(lr=INIT_LR, decay=INIT_LR / EPOCHS)
+# opt = Nadam(lr=INIT_LR, decay=INIT_LR / EPOCHS)
 # model.compile(loss="binary_crossentropy", optimizer=opt, metrics=["accuracy"])
 model.compile(loss="categorical_crossentropy", optimizer=opt, metrics=["accuracy"])
 
