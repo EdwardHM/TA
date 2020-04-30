@@ -8,6 +8,11 @@ import numpy as np
 import argparse
 import imutils
 import cv2
+import base64
+import uuid
+import os
+import io
+from imageio import imread
 
 app = Flask(__name__) #create the Flask app
 
@@ -19,16 +24,25 @@ def LeNet_Adam():
     tf.config.experimental.list_physical_devices('GPU')
     tf.config.experimental.list_logical_devices('GPU')
 
-    url = request.get_json('path')
+    url = request.get_json('imgBs64')
+    # print(url)
     stri1= str(url)[0:].split(" ")[1]
     stri2= stri1[0:].split("'")[1]
     stri3= stri2[0:].split("'")[0]
+    img = imread(io.BytesIO(base64.b64decode(stri3)))
+    cv2_img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
+    # print(cv2_img)
+    path = "E:/Kuliah/TA(Program)/API/Gambar_Send"
+    nama = str(uuid.uuid4())+".jpg"
+    cv2.imwrite(os.path.join(path, nama), cv2_img)
+    pathimage = "E:/Kuliah/TA(Program)/API/Gambar_Send/"+nama
+    print(nama)
     # path = "D:/XAMPP/htdocs/API_TA/dark_roast(1).jpg"
-    image = cv2.imread(stri3, cv2.IMREAD_COLOR)
+    image = cv2.imread(pathimage, cv2.IMREAD_COLOR)
     orig = image.copy()
-    print(stri1)
-    print(stri2)
-    print(stri3)
+    # print(stri1)
+    # print(stri2)
+    # print(stri3)
 
     #prepocessing histogram eq rgb
     image = cv2.cvtColor(image, cv2.COLOR_BGR2YCrCb)
@@ -76,16 +90,24 @@ def LeNet_Nadam():
     tf.config.experimental.list_physical_devices('GPU')
     tf.config.experimental.list_logical_devices('GPU')
 
-    url = request.get_json('path')
+    url = request.get_json('imgBs64')
     stri1= str(url)[0:].split(" ")[1]
     stri2= stri1[0:].split("'")[1]
     stri3= stri2[0:].split("'")[0]
+    img = imread(io.BytesIO(base64.b64decode(stri3)))
+    cv2_img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
+    # print(cv2_img)
+    path = "E:/Kuliah/TA(Program)/API/Gambar_Send"
+    nama = str(uuid.uuid4())+".jpg"
+    cv2.imwrite(os.path.join(path, nama), cv2_img)
+    pathimage = "E:/Kuliah/TA(Program)/API/Gambar_Send/"+nama
+    print(nama)
     # path = "D:/XAMPP/htdocs/API_TA/dark_roast(1).jpg"
-    image = cv2.imread(stri3, cv2.IMREAD_COLOR)
+    image = cv2.imread(pathimage, cv2.IMREAD_COLOR)
     orig = image.copy()
-    print(stri1)
-    print(stri2)
-    print(stri3)
+    # print(stri1)
+    # print(stri2)
+    # print(stri3)
 
     #prepocessing histogram eq rgb
     image = cv2.cvtColor(image, cv2.COLOR_BGR2YCrCb)
