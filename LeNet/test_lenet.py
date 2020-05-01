@@ -7,14 +7,13 @@ import argparse
 import imutils
 import cv2
 
-
 #Setting for using CPU
 tf.config.experimental.set_visible_devices([], 'GPU')
 tf.config.experimental.list_physical_devices('GPU')
 tf.config.experimental.list_logical_devices('GPU')
 
 #load image 
-path = "../LuarSet/Light_Roast (1).jpg"
+path = "../LuarSet/Dark Roast (1).jpg"
 image = cv2.imread(path, cv2.IMREAD_COLOR)
 orig = image.copy()
 print(path)

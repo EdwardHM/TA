@@ -13,8 +13,11 @@ import uuid
 import os
 import io
 from imageio import imread
+from flask import jsonify
+from flask_cors import CORS
 
 app = Flask(__name__) #create the Flask app
+CORS(app)
 
 @app.route('/LeNet-Adam', methods=['POST']) 
 def LeNet_Adam():

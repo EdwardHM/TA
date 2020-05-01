@@ -10,8 +10,8 @@ let app = {
             mediaType: Camera.MediaType.PICTURE,
             encodingType: Camera.EncodingType.JPEG,
             cameraDirection: 1,
-            targetWidth: 300,
-            targetHeight: 400
+            targetWidth: 400,
+            targetHeight: 300
         };
         
         navigator.camera.getPicture(app.ftw, app.wta, opts);
@@ -25,7 +25,24 @@ let app = {
         //konvert base64 string ke image
         document.getElementById('photo').src = "data:image/jpeg;base64," +imgURI;
         console.log(imgURI);
-        sessionStorage.setItem("img",imgURI);
+        // sessionStorage.setItem("img",imgURI);
+        $.ajax({
+            url: "http://192.168.1.7:5000//LeNet-Adam",
+            type: "POST",
+            datatype: "json",
+            crossDomain: true,
+            data: JSON.stringify({ imgBs64:imgURI }),
+            cache: false,
+            processData: false,
+
+            success: function(result){
+                console.log("berhasil predict");
+                console.log(result)
+                var hasil = result;
+                document.getElementById('box-hasil').style.display = "block";
+                document.getElementById('msg').innerHTML = hasil;
+            }
+        });
     },
 
     //jika gagal

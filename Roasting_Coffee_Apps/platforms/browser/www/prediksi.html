@@ -12,7 +12,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title>Home</title>
+        <title>Prediksi</title>
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <link rel="stylesheet" type="text/css" href="css/Style.css">
         <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -22,15 +22,21 @@
     
     <body>
         <div class="page" style="text-align: center;">
-            <form>
-                <!-- <a href="prediksi.html">klik sini</a> -->
-                <a href="prediksi.html"><img class="klasifikasi" src="img/icon1-removebg-preview.png" alt="klasifikasi"></a>
-                <br>
-                <img class="klasifikasi" src="img/icon3-removebg-preview.png" alt="about">
-                <br>
-                <img class="klasifikasi" src="img/icon4-removebg-preview.png" alt="help">  
-            </form>  
+            <!-- Ambil Image / Foto -->
+            <div id="absensi">
+                <h5>Ambil Gambar Kopi Yang Ingin di Klasifikasi</h5>         
+                <p><img src="img/coffee.jpg" alt="image" id="photo" style="width:180px;height:200px; border-radius: 5px;"/></p>
+                <div id="box-hasil">
+                    <b>Biji Kopi Ini Terklasifikasikan Sebagai:</b>
+                    <P id="msg"></P>
+                </div>
+                <input id="btn" type="image" src="img/icon2-removebg-preview.png">
+            </div>      
         </div>
+
         <script type="text/javascript" src="cordova.js"></script>
+
+         <!-- script ambil foto -->
+        <script type="text/javascript" src="js/takePhoto.js"></script>
     </body>
 </html>
