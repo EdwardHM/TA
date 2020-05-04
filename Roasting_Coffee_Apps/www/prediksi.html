@@ -25,7 +25,26 @@
             <!-- Ambil Image / Foto -->
             <div id="absensi">
                 <h5>Ambil Gambar Kopi Yang Ingin di Klasifikasi</h5>         
-                <p><img src="img/coffee.jpg" alt="image" id="photo" style="width:180px;height:200px; border-radius: 5px;"/></p>
+                <img src="img/coffee.jpg" alt="image" id="photo">
+                <br>
+                
+                <div class="select-box">
+                    <label for="select-box1" class="label select-box1">
+                        <span class="label-desc">Pilih Arsitektur dan Optimasi</span> 
+                    </label>
+                    <select id="select-box1" class="select">
+                      <option value="LeAdam">LeNet-Adam</option>
+                      <option value="LeNadam">LeNet-Nadam</option>
+                      <option value="LeSGD">LeNet-SGD</option>
+                      <option value="AleAdam">AlexNet-Adam</option>
+                      <option value="AleNadam">ALexNet-Nadam</option>
+                      <option value="AleSGD">AlexNet-SGD</option>
+                      <option value="MinAdam">MiniVgg-Adam</option>
+                      <option value="MinNadam">MiniVgg-Nadam</option>
+                      <option value="MinSGD">MiniVgg-SGD</option>
+                    </select>    
+                </div>
+
                 <div id="box-hasil">
                     <b>Biji Kopi Ini Terklasifikasikan Sebagai:</b>
                     <P id="msg"></P>
@@ -38,5 +57,34 @@
 
          <!-- script ambil foto -->
         <script type="text/javascript" src="js/takePhoto.js"></script>
+        <script type="text/javascript">
+            $("select").on("click" , function() {
+    
+            $(this).parent(".select-box").toggleClass("open");
+            
+            });
+
+            $(document).mouseup(function (e)
+            {
+                var container = $(".select-box");
+
+                if (container.has(e.target).length === 0)
+                {
+                    container.removeClass("open");
+                }
+            });
+
+
+            $("select").on("change" , function() {
+            
+            var selection = $(this).find("option:selected").text(),
+                labelFor = $(this).attr("id"),
+                label = $("[for='" + labelFor + "']");
+                
+            label.find(".label-desc").html(selection);
+                
+            });
+        </script>
+
     </body>
 </html>

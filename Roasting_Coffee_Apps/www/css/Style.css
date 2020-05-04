@@ -2,6 +2,13 @@ body{
 background-color: #F9D35C;    
 }
 
+#photo{
+    width:180px;
+    height:200px; 
+    border-radius: 5px;
+    margin: 16px;
+}
+
 .klasifikasi{
     height: auto;
     width: auto;
@@ -29,3 +36,64 @@ background-color: #F9D35C;
     font-size: 12px;
     display: none;
 }
+
+/* Custom dropdown */
+.select-box {
+    cursor: pointer;
+    position : relative;
+    max-width:  20em;
+    margin: 0px auto;
+    width: 100%;
+  }
+ 
+option{
+    color: #fff;
+    display: block;
+    font-size: 12px;
+    text-align: center;
+    background: #d35400;
+}
+  
+  .select,
+  .label {
+    color: #fff;
+    display: block;
+    /* font-size: 12px; */
+    font: 400 17px/2em;
+    /* text-align: center; */
+  }
+  
+  .select {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    padding: 5px 0;
+    height: 40px;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    background: none transparent;
+    border: 0 none;
+  }
+  .select-box1 {
+    background: #d35400;
+  }
+  
+  .label {
+    position: relative;
+    padding: 5px 10px 5px 0px;
+    cursor: pointer;
+    text-align: center;
+  }
+  .open .label::after {
+     content: "▲";
+  }
+  .label::after {
+    content: "▼";
+    font-size: 12px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 5px 10px;
+    border-left: 5px solid #fff;
+    text-align: center;
+  }
