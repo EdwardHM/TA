@@ -20,6 +20,7 @@ let app = {
     ftw: function(imgURI){
         //konvert base64 string ke image
         document.getElementById('photo').src = "data:image/jpeg;base64," +imgURI;
+        sessionStorage.setItem("Gambar", imgURI);
         console.log(imgURI);
         var op = document.getElementById('select-box1');
         var opsinilai =  op.options[op.selectedIndex].value;

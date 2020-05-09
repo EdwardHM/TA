@@ -9,12 +9,12 @@ background-color: #F9D35C;
     margin: 16px;
 }
 
-.klasifikasi{
+.imgbtnBeranda{
     height: auto;
     width: auto;
     max-width: 150px;
     max-height: 150px;
-    padding-top: 16px;
+    margin-top: 16px;
 }
 
 #btn{
@@ -84,7 +84,8 @@ option{
     cursor: pointer;
     text-align: center;
   }
-  .open .label::after {
+
+  /* .open .label::after {
      content: "▲";
   }
   .label::after {
@@ -97,3 +98,4 @@ option{
     border-left: 5px solid #fff;
     text-align: center;
   }
+
