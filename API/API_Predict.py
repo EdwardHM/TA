@@ -19,7 +19,7 @@ from flask_cors import CORS
 app = Flask(__name__) #create the Flask app
 CORS(app)
 
-@app.route('/LeNet-Adam', methods=['POST']) 
+@app.route('/LeNet-Adam', methods=["GET", "POST"]) 
 def LeNet_Adam():
     
     #Setting for using CPU
@@ -85,7 +85,7 @@ def LeNet_Adam():
     print("hasil prediksi : " + label)
     return label + " (LeNet-Adam)"
 
-@app.route('/LeNet-Nadam', methods=['POST']) 
+@app.route('/LeNet-Nadam', methods=["GET", "POST"]) 
 def LeNet_Nadam():
     
     #Setting for using CPU
@@ -150,7 +150,7 @@ def LeNet_Nadam():
     print("hasil prediksi : " + label)
     return label + " (LeNet-Nadam)"
 
-@app.route('/LeNet-SGD', methods=['POST']) 
+@app.route('/LeNet-SGD', methods=["GET", "POST"]) 
 def LeNet_SGD():
     
     #Setting for using CPU
@@ -212,7 +212,7 @@ def LeNet_SGD():
     return label + "(LeNet-SGD)"
 
 
-@app.route('/AlexNet-Adam', methods=['POST']) 
+@app.route('/AlexNet-Adam', methods=["GET", "POST"]) 
 def AlexNet_Adam():
     
     #Setting for using CPU
@@ -273,7 +273,7 @@ def AlexNet_Adam():
     print("hasil prediksi : " + label)
     return label+ " (AlexNet-Adam)"
 
-@app.route('/AlexNet-Nadam', methods=['POST']) 
+@app.route('/AlexNet-Nadam', methods=["GET", "POST"]) 
 def AlexNet_Nadam():
     
     #Setting for using CPU
@@ -335,7 +335,7 @@ def AlexNet_Nadam():
     return label + " (AlexNet-Nadam)"
 
 
-@app.route('/AlexNet-SGD', methods=['POST']) 
+@app.route('/AlexNet-SGD', methods=["GET", "POST"]) 
 def AlexNet_SGD():
     
     #Setting for using CPU
@@ -397,7 +397,7 @@ def AlexNet_SGD():
     return label + " (AlexNet-SGD)"
 
 
-@app.route('/MiniVgg-Adam', methods=['POST']) 
+@app.route('/MiniVgg-Adam', methods=["GET", "POST"]) 
 def MiniVgg_Adam():
     
     #Setting for using CPU
@@ -459,7 +459,7 @@ def MiniVgg_Adam():
     return label  + " (MiniVgg-Adam)"
 
 
-@app.route('/MiniVgg-Nadam', methods=['POST']) 
+@app.route('/MiniVgg-Nadam', methods=["GET", "POST"]) 
 def MiniVgg_Nadam():
     
     #Setting for using CPU
@@ -521,7 +521,7 @@ def MiniVgg_Nadam():
     return label+ " (MiniVgg-Nadam)"   
 
 
-@app.route('/MiniVgg-SGD', methods=['POST']) 
+@app.route('/MiniVgg-SGD', methods=["GET", "POST"]) 
 def MiniVgg_SGD():
     
     #Setting for using CPU
@@ -583,4 +583,5 @@ def MiniVgg_SGD():
     return label+ " (MiniVgg-SGD)"
 
 if __name__ == '__main__':
-    app.run(debug=True, host='192.168.1.7')
+    # app.run(debug=True, host='192.168.1.7', port=5000)
+    app.run(host='192.168.1.7', port=5000)

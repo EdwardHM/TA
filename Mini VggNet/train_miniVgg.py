@@ -143,9 +143,9 @@ acc = (cm[0,0] + cm[1,1] + cm[2,2] + cm[3,3]) / total
 
 #Spesifitas
 spesivitasME = (cm[1,1] + cm[2,2] + cm[3,3]) / ((cm[1,1] + cm[2,2] + cm[3,3]) + (cm[0,1] + cm[0,2] + cm[0,3]))
-spesivitasLR = (cm[0,0] + cm[2,2] + cm[3,3]) / ((cm[0,0] + cm[2,2] + cm[3,3]) + (cm[0,1] + cm[0,2] + cm[0,3]))
-spesivitasMR = (cm[0,0] + cm[1,1] + cm[3,3]) / ((cm[0,0] + cm[1,1] + cm[3,3]) + (cm[0,1] + cm[0,2] + cm[0,3]))
-spesivitasDR = (cm[0,0] + cm[1,1] + cm[2,2]) / ((cm[0,0] + cm[1,1] + cm[2,2]) + (cm[0,1] + cm[0,2] + cm[0,3]))
+spesivitasLR = (cm[0,0] + cm[2,2] + cm[3,3]) / ((cm[0,0] + cm[2,2] + cm[3,3]) + (cm[1,0] + cm[1,2] + cm[1,3]))
+spesivitasMR = (cm[0,0] + cm[1,1] + cm[3,3]) / ((cm[0,0] + cm[1,1] + cm[3,3]) + (cm[2,0] + cm[2,1] + cm[2,3]))
+spesivitasDR = (cm[0,0] + cm[1,1] + cm[2,2]) / ((cm[0,0] + cm[1,1] + cm[2,2]) + (cm[3,0] + cm[3,1] + cm[3,2]))
 
 #Sensivitas
 sensivitasME = cm[0,0] / (cm[0,0] + (cm[1,0] + cm[2,0] + cm[3,0]))
