@@ -148,7 +148,7 @@ spesivitasDR = (cm[0,0] + cm[1,1] + cm[2,2]) / ((cm[0,0] + cm[1,1] + cm[2,2]) + 
 #Sensivitas
 sensivitasME = cm[0,0] / (cm[0,0] + (cm[1,0] + cm[2,0] + cm[3,0]))
 sensivitasLR = cm[1,1] / (cm[1,1] + (cm[0,1] + cm[2,1] + cm[3,1]))
-sensivitasMR = cm[2,2] / (cm[2,2] + (cm[0,2] + cm[2,2] + cm[3,2]))
+sensivitasMR = cm[2,2] / (cm[2,2] + (cm[0,2] + cm[1,2] + cm[3,2]))
 sensivitasDR = cm[3,3] / (cm[3,3] + (cm[0,3] + cm[1,3] + cm[2,3]))
 
 print("[Info] Confusion Matrix")
