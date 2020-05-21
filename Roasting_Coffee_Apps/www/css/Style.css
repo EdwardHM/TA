@@ -26,9 +26,9 @@ background-color: #F9D35C;
 }
 
 #box-hasil{
-    background-color: lightgrey;
+    background-color:#ffdb00;
     width: 300px;
-    border: 5px solid green;
+    border: 5px solid#fdbf00;
     padding: 5px;
     /* margin: 16px 0px 16px 45px; */
     margin: auto;
@@ -51,7 +51,7 @@ option{
     display: block;
     font-size: 12px;
     text-align: center;
-    background: #d35400;
+    background: #fdbf00;
 }
   
   .select,
@@ -75,7 +75,7 @@ option{
     border: 0 none;
   }
   .select-box1 {
-    background: #d35400;
+    background: #fdbf00;
   }
   
   .label {
@@ -85,17 +85,14 @@ option{
     text-align: center;
   }
 
-  /* .open .label::after {
-     content: "▲";
-  }
-  .label::after {
-    content: "▼";
-    font-size: 12px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 5px 10px;
-    border-left: 5px solid #fff;
-    text-align: center;
-  }
+#box{
+  height: auto;
+  width: auto;
+  /* max-width: 332px;
+  max-height: 650px; */
+  margin: 40px 32px 16px 35px;
+  padding: 5px;
+  background-color:#fdbf00;
+  position: relative;
+}
 

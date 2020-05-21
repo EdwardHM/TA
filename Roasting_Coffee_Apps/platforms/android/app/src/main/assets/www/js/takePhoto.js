@@ -28,7 +28,7 @@ let app = {
         if(opsinilai!=null){
             if(opsinilai == "LeAdam"){
                 $.ajax({
-                    url: "http://192.168.1.7:5000//LeNet-Adam",
+                    url: "http://192.168.1.6:5000//LeNet-Adam",
                     type: "POST",
                     datatype: "json",
                     crossDomain: true,
@@ -46,7 +46,7 @@ let app = {
                 });
             } else if(opsinilai == "LeNadam"){
                 $.ajax({
-                    url: "http://192.168.1.7:5000//LeNet-Nadam",
+                    url: "http://192.168.1.6:5000//LeNet-Nadam",
                     type: "POST",
                     datatype: "json",
                     crossDomain: true,
@@ -64,7 +64,7 @@ let app = {
                 });
             } else if(opsinilai=="LeSGD"){
                 $.ajax({
-                    url: "http://192.168.1.7:5000//LeNet-SGD",
+                    url: "http://192.168.1.6:5000//LeNet-SGD",
                     type: "POST",
                     datatype: "json",
                     crossDomain: true,
@@ -82,7 +82,7 @@ let app = {
                 });
             } else if(opsinilai == "AleAdam"){
                 $.ajax({
-                    url: "http://192.168.1.7:5000//AlexNet-Adam",
+                    url: "http://192.168.1.6:5000//AlexNet-Adam",
                     type: "POST",
                     datatype: "json",
                     crossDomain: true,
@@ -100,7 +100,7 @@ let app = {
                 });
             } else if(opsinilai == "AleNadam"){
                 $.ajax({
-                    url: "http://192.168.1.7:5000//AlexNet-Nadam",
+                    url: "http://192.168.1.6:5000//AlexNet-Nadam",
                     type: "POST",
                     datatype: "json",
                     crossDomain: true,
@@ -118,7 +118,7 @@ let app = {
                 });
             } else if(opsinilai == "AleSGD"){
                 $.ajax({
-                    url: "http://192.168.1.7:5000//AlexNet-SGD",
+                    url: "http://192.168.1.6:5000//AlexNet-SGD",
                     type: "POST",
                     datatype: "json",
                     crossDomain: true,
@@ -136,7 +136,7 @@ let app = {
                 });
             } else if(opsinilai == "MinAdam"){
                 $.ajax({
-                    url: "http://192.168.1.7:5000//MiniVgg-Adam",
+                    url: "http://192.168.1.6:5000//MiniVgg-Adam",
                     type: "POST",
                     datatype: "json",
                     crossDomain: true,
@@ -154,7 +154,7 @@ let app = {
                 });
             } else if(opsinilai == "MinNadam"){
                 $.ajax({
-                    url: "http://192.168.1.7:5000//MiniVgg-Nadam",
+                    url: "http://192.168.1.6:5000//MiniVgg-Nadam",
                     type: "POST",
                     datatype: "json",
                     crossDomain: true,
@@ -172,7 +172,7 @@ let app = {
                 });
             } else if(opsinilai == "MinSGD"){
                 $.ajax({
-                    url: "http://192.168.1.7:5000//MiniVgg-SGD",
+                    url: "http://192.168.1.6:5000//MiniVgg-SGD",
                     type: "POST",
                     datatype: "json",
                     crossDomain: true,
