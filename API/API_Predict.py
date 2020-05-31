@@ -70,6 +70,12 @@ def LeNet_Adam():
     array = model.predict(image)
     result = array[0]
     answer = np.argmax(result)
+    index = result.argmax()
+    score = "{:.0%}".format(result[index])
+    # print("index", index)
+    # print("result",result)
+    # print("%.2f" % result[index])
+    # print (score)
 
     if answer == 0:
         label = "Mentah"
@@ -83,7 +89,7 @@ def LeNet_Adam():
     label = "{}".format(label)
 
     print("hasil prediksi : " + label)
-    return label + " (LeNet-Adam)"
+    return label + " (" + score +") (LeNet-Adam)"
 
 @app.route('/LeNet-Nadam', methods=["GET", "POST"]) 
 def LeNet_Nadam():
@@ -135,6 +141,12 @@ def LeNet_Nadam():
     array = model.predict(image)
     result = array[0]
     answer = np.argmax(result)
+    index = result.argmax()
+    score = "{:.0%}".format(result[index])
+    # print("index", index)
+    # print("result",result)
+    # print("%.2f" % result[index])
+    # print (score)
 
     if answer == 0:
         label = "Mentah"
@@ -148,7 +160,7 @@ def LeNet_Nadam():
     label = "{}".format(label)
 
     print("hasil prediksi : " + label)
-    return label + " (LeNet-Nadam)"
+    return label + " ("+ score + ") (LeNet-Nadam)"
 
 @app.route('/LeNet-SGD', methods=["GET", "POST"]) 
 def LeNet_SGD():
@@ -196,6 +208,12 @@ def LeNet_SGD():
     array = model.predict(image)
     result = array[0]
     answer = np.argmax(result)
+    index = result.argmax()
+    score = "{:.0%}".format(result[index])
+    # print("index", index)
+    # print("result",result)
+    # print("%.2f" % result[index])
+    # print (score)
 
     if answer == 0:
         label = "Mentah"
@@ -209,7 +227,7 @@ def LeNet_SGD():
     label = "{}".format(label)
 
     print("hasil prediksi : " + label)
-    return label + "(LeNet-SGD)"
+    return label +" ("+score +") (LeNet-SGD)"
 
 
 @app.route('/AlexNet-Adam', methods=["GET", "POST"]) 
@@ -258,6 +276,12 @@ def AlexNet_Adam():
     array = model.predict(image)
     result = array[0]
     answer = np.argmax(result)
+    index = result.argmax()
+    score = "{:.0%}".format(result[index])
+    # print("index", index)
+    # print("result",result)
+    # print("%.2f" % result[index])
+    # print (score)
 
     if answer == 0:
         label = "Mentah"
@@ -271,7 +295,7 @@ def AlexNet_Adam():
     label = "{}".format(label)
 
     print("hasil prediksi : " + label)
-    return label+ " (AlexNet-Adam)"
+    return label+" ("+score+ ") (AlexNet-Adam)"
 
 @app.route('/AlexNet-Nadam', methods=["GET", "POST"]) 
 def AlexNet_Nadam():
@@ -319,6 +343,12 @@ def AlexNet_Nadam():
     array = model.predict(image)
     result = array[0]
     answer = np.argmax(result)
+    index = result.argmax()
+    score = "{:.0%}".format(result[index])
+    # print("index", index)
+    # print("result",result)
+    # print("%.2f" % result[index])
+    # print (score)
 
     if answer == 0:
         label = "Mentah"
@@ -332,7 +362,7 @@ def AlexNet_Nadam():
     label = "{}".format(label)
 
     print("hasil prediksi : " + label)
-    return label + " (AlexNet-Nadam)"
+    return label +" ("+score+") (AlexNet-Nadam)"
 
 
 @app.route('/AlexNet-SGD', methods=["GET", "POST"]) 
@@ -381,6 +411,12 @@ def AlexNet_SGD():
     array = model.predict(image)
     result = array[0]
     answer = np.argmax(result)
+    index = result.argmax()
+    score = "{:.0%}".format(result[index])
+    # print("index", index)
+    # print("result",result)
+    # print("%.2f" % result[index])
+    # print (score)
 
     if answer == 0:
         label = "Mentah"
@@ -394,7 +430,7 @@ def AlexNet_SGD():
     label = "{}".format(label)
 
     print("hasil prediksi : " + label)
-    return label + " (AlexNet-SGD)"
+    return label +"("+score+") (AlexNet-SGD)"
 
 
 @app.route('/MiniVgg-Adam', methods=["GET", "POST"]) 
@@ -443,6 +479,12 @@ def MiniVgg_Adam():
     array = model.predict(image)
     result = array[0]
     answer = np.argmax(result)
+    index = result.argmax()
+    score = "{:.0%}".format(result[index])
+    # print("index", index)
+    # print("result",result)
+    # print("%.2f" % result[index])
+    # print (score)
 
     if answer == 0:
         label = "Mentah"
@@ -456,7 +498,7 @@ def MiniVgg_Adam():
     label = "{}".format(label)
 
     print("hasil prediksi : " + label)
-    return label  + " (MiniVgg-Adam)"
+    return label  +" ("+score+") (MiniVgg-Adam)"
 
 
 @app.route('/MiniVgg-Nadam', methods=["GET", "POST"]) 
@@ -505,6 +547,12 @@ def MiniVgg_Nadam():
     array = model.predict(image)
     result = array[0]
     answer = np.argmax(result)
+    index = result.argmax()
+    score = "{:.0%}".format(result[index])
+    # print("index", index)
+    # print("result",result)
+    # print("%.2f" % result[index])
+    # print (score)
 
     if answer == 0:
         label = "Mentah"
@@ -518,7 +566,7 @@ def MiniVgg_Nadam():
     label = "{}".format(label)
 
     print("hasil prediksi : " + label)
-    return label+ " (MiniVgg-Nadam)"   
+    return label+" ("+score+") (MiniVgg-Nadam)"   
 
 
 @app.route('/MiniVgg-SGD', methods=["GET", "POST"]) 
@@ -567,6 +615,12 @@ def MiniVgg_SGD():
     array = model.predict(image)
     result = array[0]
     answer = np.argmax(result)
+    index = result.argmax()
+    score = "{:.0%}".format(result[index])
+    # print("index", index)
+    # print("result",result)
+    # print("%.2f" % result[index])
+    # print (score)
 
     if answer == 0:
         label = "Mentah"
@@ -580,8 +634,8 @@ def MiniVgg_SGD():
     label = "{}".format(label)
 
     print("hasil prediksi : " + label)
-    return label+ " (MiniVgg-SGD)"
+    return label+" ("+score+") (MiniVgg-SGD)"
 
 if __name__ == '__main__':
     # app.run(debug=True, host='192.168.1.7', port=5000)
-    app.run(host='192.168.1.6', port=5000)
+    app.run(host='192.168.1.5', port=5000)

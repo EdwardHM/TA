@@ -13,7 +13,7 @@ tf.config.experimental.list_physical_devices('GPU')
 tf.config.experimental.list_logical_devices('GPU')
 
 #load image 
-path = "../LuarSet/Dark Roast (1).jpg"
+path = "../LuarSet/medium_roast (2).jpg"
 image = cv2.imread(path, cv2.IMREAD_COLOR)
 orig = image.copy()
 print(path)
@@ -40,6 +40,14 @@ model = tf.keras.models.load_model("train_lenet.model.h5")
 array = model.predict(image)
 result = array[0]
 answer = np.argmax(result)
+index = result.argmax()
+score = "{:.0%}".format(result[index])
+# print("index", index)
+# print("result",result)
+# print("%.2f" % result[index])
+# print (score)
+
+
 
 if answer == 0:
     label = "Mentah"
@@ -60,4 +68,4 @@ cv2.putText(output, label, (10, 25),  cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0)
 cv2.imshow("Output", output)
 cv2.waitKey(0)
 
-print("hasil prediksi : " + label)
+print("hasil prediksi: " + label + " keyakinan: " + score)
