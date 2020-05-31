@@ -7,6 +7,10 @@
     <feature name="Camera">
         <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
     </feature>
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+        <param name="onload" value="true" />
+    </feature>
     <name>Roast Observer</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
@@ -27,5 +31,15 @@
     <icon density="mdpi" src="res/icon/icon.png" />
     <icon density="hdpi" src="res/icon/icon.png" />
     <icon density="xhdpi" src="res/icon/icon.png" />
+    <splash density="land-hdpi" src="res/icon/splash-landHDPI.png" />
+    <splash density="land-ldpi" src="res/icon/splash-landLDPI.png" />
+    <splash density="land-mdpi" src="res/icon/splash-landMDPI.png" />
+    <splash density="land-xhdpi" src="res/icon/splash-landHDPI.png" />
+    <splash density="port-hdpi" src="res/icon/splash-portHDPI.png" />
+    <splash density="port-ldpi" src="res/icon/splash-portLDPI.png" />
+    <splash density="port-mdpi" src="res/icon/splash-portMDPI.png" />
+    <splash density="port-xhdpi" src="res/icon/splash-portHDPI.png" />
     <preference name="loglevel" value="DEBUG" />
+    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashScreenDelay" value="6000" />
 </widget>

@@ -12,6 +12,9 @@
     },
     "cordova-plugin-camera": {
       "PACKAGE_NAME": "com.ProgramTA.Roasting_Coffee_Apps"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.ProgramTA.Roasting_Coffee_Apps"
     }
   },
   "dependent_plugins": {}

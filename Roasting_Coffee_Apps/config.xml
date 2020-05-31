@@ -16,12 +16,24 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashScreenDelay" value="6000" />
     <platform name="android">
         <allow-intent href="market:*" />
         <icon density="ldpi" src="res/icon/icon.png" />
         <icon density="mdpi" src="res/icon/icon.png" />
         <icon density="hdpi" src="res/icon/icon.png" />
         <icon density="xhdpi" src="res/icon/icon.png" />
+        
+        <splash src="res/icon/splash-landHDPI.png" density="land-hdpi"/>
+        <splash src="res/icon/splash-landLDPI.png" density="land-ldpi"/>
+        <splash src="res/icon/splash-landMDPI.png" density="land-mdpi"/>
+        <splash src="res/icon/splash-landHDPI.png" density="land-xhdpi"/>
+
+        <splash src="res/icon/splash-portHDPI.png" density="port-hdpi"/>
+        <splash src="res/icon/splash-portLDPI.png" density="port-ldpi"/>
+        <splash src="res/icon/splash-portMDPI.png" density="port-mdpi"/>
+        <splash src="res/icon/splash-portHDPI.png" density="port-xhdpi"/>
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />

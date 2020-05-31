@@ -51,7 +51,7 @@ option{
     display: block;
     font-size: 12px;
     text-align: center;
-    background: #d35400;
+    background: #fdbf00;
 }
   
   .select,
@@ -75,7 +75,7 @@ option{
     border: 0 none;
   }
   .select-box1 {
-    background: #d35400;
+    background: #fdbf00;
   }
   
   .label {
@@ -95,4 +95,9 @@ option{
   background-color:#fdbf00;
   position: relative;
 }
+
+/* #provUniv{
+  padding: 0px;
+  text-align: center;
+} */
 

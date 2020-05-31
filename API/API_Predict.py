@@ -89,7 +89,7 @@ def LeNet_Adam():
     label = "{}".format(label)
 
     print("hasil prediksi : " + label)
-    return label + " (" + score +") (LeNet-Adam)"
+    return label + " (" + score +") (LeNet5-Adam)"
 
 @app.route('/LeNet-Nadam', methods=["GET", "POST"]) 
 def LeNet_Nadam():
@@ -160,7 +160,7 @@ def LeNet_Nadam():
     label = "{}".format(label)
 
     print("hasil prediksi : " + label)
-    return label + " ("+ score + ") (LeNet-Nadam)"
+    return label + " ("+ score + ") (LeNet5-Nadam)"
 
 @app.route('/LeNet-SGD', methods=["GET", "POST"]) 
 def LeNet_SGD():
@@ -227,7 +227,7 @@ def LeNet_SGD():
     label = "{}".format(label)
 
     print("hasil prediksi : " + label)
-    return label +" ("+score +") (LeNet-SGD)"
+    return label +" ("+score +") (LeNet5-SGD)"
 
 
 @app.route('/AlexNet-Adam', methods=["GET", "POST"]) 
@@ -430,7 +430,7 @@ def AlexNet_SGD():
     label = "{}".format(label)
 
     print("hasil prediksi : " + label)
-    return label +"("+score+") (AlexNet-SGD)"
+    return label +" ("+score+") (AlexNet-SGD)"
 
 
 @app.route('/MiniVgg-Adam', methods=["GET", "POST"]) 
