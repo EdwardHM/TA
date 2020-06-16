@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Flask Tutorial</title>
+    <!-- css -->
+    <link rel="stylesheet" href="{{ url_for('static',    filename='css/MyStyle.css') }}">
+    <script type=text/javascript src="{{url_for('static', filename='js/jquery-1.7.1.min.js') }}"></script>
+    <script type=text/javascript src="{{url_for('static', filename='js/jquery.min.js') }}"></script>
+  </head>
+  <body>
+</head>
+<body>
+
+  <h1 class="logo">Penambahan Data</h1>
+  <section class="row">
+    <table id="ListFoto">
+      <tr>
+        <th>Gambar</th>
+        <th>Rename Sebagai</th>
+        <th>Validasi</th>
+        <th>Name</th>
+      </tr>
+      {% for image in images %}
+      <tr>
+        <td>
+          <img src="{{ url_for('static', filename='Gambar_Send/' + image) }}">
+        </td>
+        <td>  
+          <select name="kelas" id="kelas">
+            <option value="Mentah">Mentah</option>
+            <option value="Light Roast ">Light Roast </option>
+            <option value="Medium Roast">Medium Roast</option>
+            <option value="Dark Roast">Dark Roast</option>
+          </select>
+        </td>
+        <td>
+          <button id="AmbilData">Approve</button>
+        </td>
+        <!-- nama image -->
+        <td>{{ image }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+
+    <script type=text/javascript src="{{url_for('static', filename='js/Function.js') }}"></script>
+
+  </body>
+</html>

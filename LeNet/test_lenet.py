@@ -13,7 +13,7 @@ tf.config.experimental.list_physical_devices('GPU')
 tf.config.experimental.list_logical_devices('GPU')
 
 #load image 
-path = "../LuarSet/medium_roast (2).jpg"
+path = "../LuarSet/mentah (4).jpg"
 image = cv2.imread(path, cv2.IMREAD_COLOR)
 orig = image.copy()
 print(path)
@@ -62,7 +62,7 @@ label = "{}".format(label)
 
 # draw label di image
 output = imutils.resize(orig, width=400)
-cv2.putText(output, label, (10, 25),  cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
+cv2.putText(output, label, (10, 25),  cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 0, 0), 2)
 
 # show output image
 cv2.imshow("Output", output)

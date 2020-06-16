@@ -35,10 +35,10 @@ def LeNet_Adam():
     img = imread(io.BytesIO(base64.b64decode(stri3)))
     cv2_img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
     # print(cv2_img)
-    path = "E:/Kuliah/TA(Program)/API/Gambar_Send"
+    path = "E:/Kuliah/TA(Program)/APIdanAdmin/static/Gambar_Send/"
     nama = str(uuid.uuid4())+".jpg"
     cv2.imwrite(os.path.join(path, nama), cv2_img)
-    pathimage = "E:/Kuliah/TA(Program)/API/Gambar_Send/"+nama
+    pathimage = "E:/Kuliah/TA(Program)/APIdanAdmin/static/Gambar_Send/"+nama
     print(nama)
     # path = "D:/XAMPP/htdocs/API_TA/dark_roast(1).jpg"
     image = cv2.imread(pathimage, cv2.IMREAD_COLOR)
@@ -88,7 +88,7 @@ def LeNet_Adam():
 
     label = "{}".format(label)
 
-    print("hasil prediksi : " + label)
+    print("hasil prediksi : " + label + " "+score)
     return label + " (" + score +") (LeNet5-Adam)"
 
 @app.route('/LeNet-Nadam', methods=["GET", "POST"]) 
@@ -106,10 +106,10 @@ def LeNet_Nadam():
     img = imread(io.BytesIO(base64.b64decode(stri3)))
     cv2_img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
     # print(cv2_img)
-    path = "E:/Kuliah/TA(Program)/API/Gambar_Send"
+    path = "E:/Kuliah/TA(Program)/APIdanAdmin/static/Gambar_Send/"
     nama = str(uuid.uuid4())+".jpg"
     cv2.imwrite(os.path.join(path, nama), cv2_img)
-    pathimage = "E:/Kuliah/TA(Program)/API/Gambar_Send/"+nama
+    pathimage = "E:/Kuliah/TA(Program)/APIdanAdmin/static/Gambar_Send/"+nama
     print(nama)
     # path = "D:/XAMPP/htdocs/API_TA/dark_roast(1).jpg"
     image = cv2.imread(pathimage, cv2.IMREAD_COLOR)
@@ -159,7 +159,7 @@ def LeNet_Nadam():
 
     label = "{}".format(label)
 
-    print("hasil prediksi : " + label)
+    print("hasil prediksi : " + label + " "+score)
     return label + " ("+ score + ") (LeNet5-Nadam)"
 
 @app.route('/LeNet-SGD', methods=["GET", "POST"]) 
@@ -177,10 +177,10 @@ def LeNet_SGD():
     img = imread(io.BytesIO(base64.b64decode(stri3)))
     cv2_img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
     # print(cv2_img)
-    path = "E:/Kuliah/TA(Program)/API/Gambar_Send"
+    path = "E:/Kuliah/TA(Program)/APIdanAdmin/static/Gambar_Send/"
     nama = str(uuid.uuid4())+".jpg"
     cv2.imwrite(os.path.join(path, nama), cv2_img)
-    pathimage = "E:/Kuliah/TA(Program)/API/Gambar_Send/"+nama
+    pathimage = "E:/Kuliah/TA(Program)/APIdanAdmin/static/Gambar_Send/"+nama
     print(nama)
     image = cv2.imread(pathimage, cv2.IMREAD_COLOR)
     orig = image.copy()
@@ -226,7 +226,7 @@ def LeNet_SGD():
 
     label = "{}".format(label)
 
-    print("hasil prediksi : " + label)
+    print("hasil prediksi : " + label + " "+score)
     return label +" ("+score +") (LeNet5-SGD)"
 
 
@@ -245,10 +245,10 @@ def AlexNet_Adam():
     img = imread(io.BytesIO(base64.b64decode(stri3)))
     cv2_img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
     # print(cv2_img)
-    path = "E:/Kuliah/TA(Program)/API/Gambar_Send"
+    path = "E:/Kuliah/TA(Program)/APIdanAdmin/static/Gambar_Send/"
     nama = str(uuid.uuid4())+".jpg"
     cv2.imwrite(os.path.join(path, nama), cv2_img)
-    pathimage = "E:/Kuliah/TA(Program)/API/Gambar_Send/"+nama
+    pathimage = "E:/Kuliah/TA(Program)/APIdanAdmin/static/Gambar_Send/"+nama
     print(nama)
     image = cv2.imread(pathimage, cv2.IMREAD_COLOR)
     orig = image.copy()
@@ -294,7 +294,7 @@ def AlexNet_Adam():
 
     label = "{}".format(label)
 
-    print("hasil prediksi : " + label)
+    print("hasil prediksi : " + label + " "+score)
     return label+" ("+score+ ") (AlexNet-Adam)"
 
 @app.route('/AlexNet-Nadam', methods=["GET", "POST"]) 
@@ -312,10 +312,10 @@ def AlexNet_Nadam():
     img = imread(io.BytesIO(base64.b64decode(stri3)))
     cv2_img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
     # print(cv2_img)
-    path = "E:/Kuliah/TA(Program)/API/Gambar_Send"
+    path = "E:/Kuliah/TA(Program)/APIdanAdmin/static/Gambar_Send/"
     nama = str(uuid.uuid4())+".jpg"
     cv2.imwrite(os.path.join(path, nama), cv2_img)
-    pathimage = "E:/Kuliah/TA(Program)/API/Gambar_Send/"+nama
+    pathimage = "E:/Kuliah/TA(Program)/APIdanAdmin/static/Gambar_Send/"+nama
     print(nama)
     image = cv2.imread(pathimage, cv2.IMREAD_COLOR)
     orig = image.copy()
@@ -361,7 +361,7 @@ def AlexNet_Nadam():
 
     label = "{}".format(label)
 
-    print("hasil prediksi : " + label)
+    print("hasil prediksi : " + label + " "+score)
     return label +" ("+score+") (AlexNet-Nadam)"
 
 
@@ -380,10 +380,10 @@ def AlexNet_SGD():
     img = imread(io.BytesIO(base64.b64decode(stri3)))
     cv2_img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
     # print(cv2_img)
-    path = "E:/Kuliah/TA(Program)/API/Gambar_Send"
+    path = "E:/Kuliah/TA(Program)/APIdanAdmin/static/Gambar_Send/"
     nama = str(uuid.uuid4())+".jpg"
     cv2.imwrite(os.path.join(path, nama), cv2_img)
-    pathimage = "E:/Kuliah/TA(Program)/API/Gambar_Send/"+nama
+    pathimage = "E:/Kuliah/TA(Program)/APIdanAdmin/static/Gambar_Send/"+nama
     print(nama)
     image = cv2.imread(pathimage, cv2.IMREAD_COLOR)
     orig = image.copy()
@@ -429,7 +429,7 @@ def AlexNet_SGD():
 
     label = "{}".format(label)
 
-    print("hasil prediksi : " + label)
+    print("hasil prediksi : " + label + " "+score)
     return label +" ("+score+") (AlexNet-SGD)"
 
 
@@ -448,10 +448,10 @@ def MiniVgg_Adam():
     img = imread(io.BytesIO(base64.b64decode(stri3)))
     cv2_img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
     # print(cv2_img)
-    path = "E:/Kuliah/TA(Program)/API/Gambar_Send"
+    path = "E:/Kuliah/TA(Program)/APIdanAdmin/static/Gambar_Send/"
     nama = str(uuid.uuid4())+".jpg"
     cv2.imwrite(os.path.join(path, nama), cv2_img)
-    pathimage = "E:/Kuliah/TA(Program)/API/Gambar_Send/"+nama
+    pathimage = "E:/Kuliah/TA(Program)/APIdanAdmin/static/Gambar_Send/"+nama
     print(nama)
     image = cv2.imread(pathimage, cv2.IMREAD_COLOR)
     orig = image.copy()
@@ -497,7 +497,7 @@ def MiniVgg_Adam():
 
     label = "{}".format(label)
 
-    print("hasil prediksi : " + label)
+    print("hasil prediksi : " + label + " "+score)
     return label  +" ("+score+") (MiniVgg-Adam)"
 
 
@@ -516,10 +516,10 @@ def MiniVgg_Nadam():
     img = imread(io.BytesIO(base64.b64decode(stri3)))
     cv2_img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
     # print(cv2_img)
-    path = "E:/Kuliah/TA(Program)/API/Gambar_Send"
+    path = "E:/Kuliah/TA(Program)/APIdanAdmin/static/Gambar_Send/"
     nama = str(uuid.uuid4())+".jpg"
     cv2.imwrite(os.path.join(path, nama), cv2_img)
-    pathimage = "E:/Kuliah/TA(Program)/API/Gambar_Send/"+nama
+    pathimage = "E:/Kuliah/TA(Program)/APIdanAdmin/static/Gambar_Send/"+nama
     print(nama)
     image = cv2.imread(pathimage, cv2.IMREAD_COLOR)
     orig = image.copy()
@@ -565,7 +565,7 @@ def MiniVgg_Nadam():
 
     label = "{}".format(label)
 
-    print("hasil prediksi : " + label)
+    print("hasil prediksi : " + label + " "+score)
     return label+" ("+score+") (MiniVgg-Nadam)"   
 
 
@@ -584,10 +584,10 @@ def MiniVgg_SGD():
     img = imread(io.BytesIO(base64.b64decode(stri3)))
     cv2_img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
     # print(cv2_img)
-    path = "E:/Kuliah/TA(Program)/API/Gambar_Send"
+    path = "E:/Kuliah/TA(Program)/APIdanAdmin/static/Gambar_Send/"
     nama = str(uuid.uuid4())+".jpg"
     cv2.imwrite(os.path.join(path, nama), cv2_img)
-    pathimage = "E:/Kuliah/TA(Program)/API/Gambar_Send/"+nama
+    pathimage = "E:/Kuliah/TA(Program)/APIdanAdmin/static/Gambar_Send/"+nama
     print(nama)
     image = cv2.imread(pathimage, cv2.IMREAD_COLOR)
     orig = image.copy()
@@ -633,9 +633,9 @@ def MiniVgg_SGD():
 
     label = "{}".format(label)
 
-    print("hasil prediksi : " + label)
+    print("hasil prediksi : " + label + " "+score)
     return label+" ("+score+") (MiniVgg-SGD)"
 
 if __name__ == '__main__':
     # app.run(debug=True, host='192.168.1.7', port=5000)
-    app.run(host='192.168.1.5', port=5000)
+    app.run(host='192.168.1.6', port=5000)
