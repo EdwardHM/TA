@@ -19,8 +19,9 @@
         <th>Gambar</th>
         <th>Rename Sebagai</th>
         <th>Validasi</th>
-        <th>Name</th>
+        <th style="display:none">Name</th>
       </tr>
+      <!-- loop table -->
       {% for image in images %}
       <tr>
         <td>
@@ -35,12 +36,13 @@
           </select>
         </td>
         <td>
-          <button id="AmbilData">Approve</button>
+          <button id="AmbilData" onclick="getId(this)">Approve</button>
         </td>
         <!-- nama image -->
-        <td>{{ image }}</td>
+        <td style="display:none">{{ image }}</td>
       </tr>
       {% endfor %}
+      <!-- end loop table -->
     </table>
 
     <script type=text/javascript src="{{url_for('static', filename='js/Function.js') }}"></script>
