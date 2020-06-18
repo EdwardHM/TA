@@ -21,10 +21,12 @@ def home():
 def Move():
     data = request.get_json('gambar')
     namaAwal = str(data["gambar"])
-    # kelas = request.get_json('kls')
     kelas = str(data["kls"])
     path = "E:/Kuliah/TA(Program)/APIdanAdmin/static/Gambar_Send/"+namaAwal
-    pindah = "E:/Kuliah/TA(Program)/ujiPindah"
+    # pindah = "E:/Kuliah/TA(Program)/ujiPindah"
+    datasetOri = "E:/Kuliah/TA(Program)/Dataset"
+    datasetPrepo = "E:/Kuliah/TA(Program)/prepo"
+    
     img_data = cv2.imread(path, cv2.IMREAD_COLOR)
     # histogram equalization RGB
     img_y_cr_cb = cv2.cvtColor(img_data, cv2.COLOR_BGR2YCrCb)
@@ -36,14 +38,117 @@ def Move():
     img_y_cr_cb_eq = cv2.merge((y_eq, cr, cb))
     img_rgb_eq = cv2.cvtColor(img_y_cr_cb_eq, cv2.COLOR_YCR_CB2BGR)
 
-    #simpan ke prepo
-    #ambil nama asli file e
-    savename = kelas+".jpg"
-    cv2.imwrite(os.path.join(pindah, savename),img_rgb_eq)
-    # cv2.imshow('Test image',image)
-    # cv2.waitKey(0)
-    # cv2.destroyAllWindows()
-    response = "Response: Gambar: " + namaAwal + " Menjadi: "+kelas
+    if kelas == "Mentah":
+        #simpan ke prepo
+        #rename file
+        namaFile = "JumlahMentah.txt"
+        fileJumlah = open(namaFile, "r")
+        jumlah = fileJumlah.read() 
+        # Mengupdate jumlah data
+        jumlah = int(jumlah) + 1
+        perbarui = open(namaFile, "w")
+        perbarui.write(str(jumlah))
+        perbarui.close()
+        savename = kelas+" ("+ str(jumlah) +")"+".jpg"
+
+        #ke dataset yang sudah di prepo
+        cv2.imwrite(os.path.join(datasetPrepo, savename),img_rgb_eq)
+        #ke dataset yang sudah belum di prepo (Gambar Asli)
+        cv2.imwrite(os.path.join(datasetOri, savename),img_data)
+
+        if os.path.exists(path):
+            # hapus file
+            os.remove(path)
+        else:
+            # file not found message
+            print("File not found in the directory")
+
+        response = "Berhasil Menambahkan Gambar ke Dataset"  
+    
+    elif kelas == "Light Roast":
+        #simpan ke prepo
+        #rename file
+        namaFile = "JumlahLight.txt"
+        fileJumlah = open(namaFile, "r")
+        jumlah = fileJumlah.read() 
+        # Mengupdate jumlah data
+        jumlah = int(jumlah) + 1
+        perbarui = open(namaFile, "w")
+        perbarui.write(str(jumlah))
+        perbarui.close()
+        savename = kelas+" ("+ str(jumlah) +")"+".jpg"
+
+        #ke dataset yang sudah di prepo
+        cv2.imwrite(os.path.join(datasetPrepo, savename),img_rgb_eq)
+        #ke dataset yang sudah belum di prepo (Gambar Asli)
+        cv2.imwrite(os.path.join(datasetOri, savename),img_data)
+
+        if os.path.exists(path):
+            # hapus file
+            os.remove(path)
+        else:
+            # file not found message
+            print("File not found in the directory")
+
+        response = "Berhasil Menambahkan Gambar ke Dataset"     
+
+    elif kelas == "Medium Roast":
+        #simpan ke prepo
+        #rename file
+        namaFile = "JumlahMedium.txt"
+        fileJumlah = open(namaFile, "r")
+        jumlah = fileJumlah.read() 
+        # Mengupdate jumlah data
+        jumlah = int(jumlah) + 1
+        perbarui = open(namaFile, "w")
+        perbarui.write(str(jumlah))
+        perbarui.close()
+        savename = kelas+" ("+ str(jumlah) +")"+".jpg"
+
+        #ke dataset yang sudah di prepo
+        cv2.imwrite(os.path.join(datasetPrepo, savename),img_rgb_eq)
+        #ke dataset yang sudah belum di prepo (Gambar Asli)
+        cv2.imwrite(os.path.join(datasetOri, savename),img_data)
+
+        if os.path.exists(path):
+            # hapus file
+            os.remove(path)
+        else:
+            # file not found message
+            print("File not found in the directory")  
+
+        response = "Berhasil Menambahkan Gambar ke Dataset"  
+
+    elif kelas == "Dark Roast":
+        #simpan ke prepo
+        #rename file
+        namaFile = "JumlahDark.txt"
+        fileJumlah = open(namaFile, "r")
+        jumlah = fileJumlah.read() 
+        # Mengupdate jumlah data
+        jumlah = int(jumlah) + 1
+        perbarui = open(namaFile, "w")
+        perbarui.write(str(jumlah))
+        perbarui.close()
+        savename = kelas+" ("+ str(jumlah) +")"+".jpg"
+
+        #ke dataset yang sudah di prepo
+        cv2.imwrite(os.path.join(datasetPrepo, savename),img_rgb_eq)
+        #ke dataset yang sudah belum di prepo (Gambar Asli)
+        cv2.imwrite(os.path.join(datasetOri, savename),img_data)
+
+        if os.path.exists(path):
+            # hapus file
+            os.remove(path)
+        else:
+            # file not found message
+            print("File not found in the directory")
+
+        response = "Berhasil Menambahkan Gambar ke Dataset"  
+    
+    else :
+        response = "Terjadi Kesalahan"
+
     return response
     
 if __name__ == "__main__":
