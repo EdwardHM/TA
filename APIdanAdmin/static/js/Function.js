@@ -22,3 +22,24 @@ function  getId(element) {
         }
     });
 }
+
+function IdHapus(element){
+    var baris = element.parentNode.parentNode.rowIndex;
+    var nama = document.getElementById("ListFoto").rows[baris].cells.item(3).innerHTML;
+    $.ajax({
+        url: "http://192.168.1.6:5001/Delete",
+        type: "POST",
+        datatype: "json",
+        crossDomain: true,
+        data:JSON.stringify( { gambar:nama } ),
+        cache: false,
+        processData: false,
+
+        success: function(result){
+            console.log("berhasil pindahkan gambar ke Dataset");
+            alert(result)
+            // href ke route yang di python
+            window.location.href = "/";
+        }
+    });
+}

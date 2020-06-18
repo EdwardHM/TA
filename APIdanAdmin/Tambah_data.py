@@ -14,9 +14,41 @@ CORS(app)
 @app.route("/")
 def home():
     images = os.listdir(os.path.join(app.static_folder, "Gambar_Send"))
-    # imagePaths = sorted(list(paths.list_images("../prepo")))
-    return render_template("Home.html", images=images)
-    
+    #jumlah dataset 
+    JumlahMentah = open("JumlahMentah.txt", "r")
+    jumlah1 = JumlahMentah.read() 
+    JumlahLight = open("JumlahLight.txt", "r")
+    jumlah2 = JumlahLight.read() 
+    JumlahMedium = open("JumlahMedium.txt", "r")
+    jumlah3 = JumlahMedium.read() 
+    JumlahDark = open("JumlahDark.txt", "r")
+    jumlah4 = JumlahDark.read() 
+    total = int(jumlah1) + int(jumlah2) + int(jumlah3) + int(jumlah4)
+    data = [{
+        "Mentah": jumlah1,
+        "Light":jumlah2,
+        "Medium": jumlah3,
+        "Dark": jumlah4,
+        "Total": str(total)
+    } ]
+    #send gambar
+    return render_template("Home.html", images=images, data=data)
+
+@app.route("/Delete", methods=["GET", "POST"])
+def hapus():
+    gambar = request.get_json('gambar')
+    namaGambar= str(gambar["gambar"])
+    path_tampung = "E:/Kuliah/TA(Program)/APIdanAdmin/static/Gambar_Send/"+namaGambar
+    if os.path.exists(path_tampung):
+        # hapus file
+        os.remove(path_tampung)
+        response = "Berhasil Menghapus Gambar"
+    else:
+        # file not found message
+        response = "Gambar tidak ditemukan"    
+
+    return response
+
 @app.route("/Move", methods=["GET", "POST"])
 def Move():
     data = request.get_json('gambar')
