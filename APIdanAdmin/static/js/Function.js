@@ -6,7 +6,7 @@ function  getId(element) {
     var kelas = document.getElementById("ListFoto").rows[baris].cells[1].childNodes[1].value;
 
     $.ajax({
-        url: "http://192.168.1.6:5001/Move",
+        url: "http://192.168.1.7:5001/Move",
         type: "POST",
         datatype: "json",
         crossDomain: true,
@@ -27,7 +27,7 @@ function IdHapus(element){
     var baris = element.parentNode.parentNode.rowIndex;
     var nama = document.getElementById("ListFoto").rows[baris].cells.item(3).innerHTML;
     $.ajax({
-        url: "http://192.168.1.6:5001/Delete",
+        url: "http://192.168.1.7:5001/Delete",
         type: "POST",
         datatype: "json",
         crossDomain: true,

@@ -184,5 +184,5 @@ def Move():
     return response
     
 if __name__ == "__main__":
-    app.debug = True
-    app.run(host='192.168.1.6', port=5001)
+    # app.debug = True
+    app.run(host='192.168.1.7', port=5001)

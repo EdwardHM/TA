@@ -29,7 +29,8 @@ for x in dataAkurasi:
     ListAkurasi.append(x)
 
 rata = data.groupby('model').mean()
-# print(rata)
+print("[INFO....] Rata-rata")
+print(rata)
 
 #One way Anova
 lm = ols('akurasi ~ model', data=data).fit()

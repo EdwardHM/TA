@@ -13,7 +13,7 @@ tf.config.experimental.list_physical_devices('GPU')
 tf.config.experimental.list_logical_devices('GPU')
 
 #load image 
-path = "../LuarSet/mentah (4).jpg"
+path = "../APIdanAdmin/static/Gambar_Send/Darkpake.jpg"
 image = cv2.imread(path, cv2.IMREAD_COLOR)
 orig = image.copy()
 print(path)

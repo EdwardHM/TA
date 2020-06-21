@@ -1,0 +1,9 @@
+(1) Untuk menjalankan Halaman Penambahan Data:
+    python Tambah_data.py
+
+(2) Untuk File Cordova APPS semuanya di folder "Roasting_Coffee_Apps"
+
+(3) Untuk Menjalankan Web Sevice / API :
+    python API_Predict.py
+
+(4) Untuk pengujian ANOVA dan Post-Hoc Ada di folder "pengujian"
