@@ -12,5 +12,4 @@ train_miniVgg(NADAM).model.h5
 train_miniVgg(SGD).model.h5
 Images
 LuarSet
-Gambar_Send
 ujiPindah

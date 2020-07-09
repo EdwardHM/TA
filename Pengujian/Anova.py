@@ -12,6 +12,7 @@ MiniVGGNet= [0.95, 0.62, 0.70, 0.40, 0.73, 0.85, 0.60, 0.93, 0.80, 0.93]
 all_scores = LeNet5 + AlexNet + MiniVGGNet
 model_names = (['LeNet5(ADAM)'] * len(LeNet5)) + (['AlexNet(ADAM)'] * len(AlexNet)) + (['MiniVGGNet(NADAM)'] * len(MiniVGGNet))
 # print(all_scores)
+# print(model_names)
 
 data = pd.DataFrame({'model': model_names, 'akurasi': all_scores})
 # print(data)

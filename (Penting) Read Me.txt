@@ -1,0 +1,21 @@
+(1) Untuk menjalankan Halaman Penambahan Data:
+    python Tambah_data.py (lokasi APIdanADMIN)
+
+(2) Untuk File Cordova APPS semuanya di folder "Roasting_Coffee_Apps"
+
+(3) Untuk Menjalankan Web Sevice / API :
+    python API_Predict.py (lokasi APIdanADMIN)
+
+(4) Untuk pengujian ANOVA dan Post-Hoc Ada di folder "pengujian"
+
+(5) Model yang berada di folder APIdanAdmin semua sudah yang terbaik dari masing-masing pelatihan. Untuk yang berada di Folder LeNet, MiniVggNet, dan AlexNet adalah     model dan kurva pembelajaran terakhir hasil pelatihan.
+
+(6) Untuk melakukan Histogram Equalization pada seluruh dataset yang ada menggunakan file "rgbhistogram.py" pada folder LeNet
+
+(7) Jumlah dataset sudah bertambah sedikit, karena hasil untuk uji coba penambahan data dari halaman admin. Data awal masing-masing class adalah 60 jika lebih dari itu brt gambar dengan nomor 60> adalah hasil penambahan.
+ 
+hal yang diperlukan :
+-install framework cordova
+-install flask
+
+Semoga bermanfaat bagi siapapun yang membaca ini :D
